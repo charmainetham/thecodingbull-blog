@@ -11,7 +11,7 @@ var PostSchema = mongoose.Schema({
   description: String,
   body: String,
   posted: {type: Date, default: Date.now}
-})
+}, {collection: 'posts'})
 
 var PostModel = mongoose.model("PostModel", PostSchema)
 
