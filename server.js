@@ -22,6 +22,8 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.post("/api/blogpost", createPost)
 app.get("/api/blogpost", getAllPosts)
 app.delete("/api/blogpost/:id", deletePost)
+app.get("/api/blogpost/:id", getPostById)
+app.put("/api/blogpost/:id", updatePost)
 
 function getAllPosts(req,res){
   PostModel
@@ -33,7 +35,7 @@ function getAllPosts(req,res){
       function(error){
         res.sendStatus(400);
       }
-      )
+    )
 }
 
 function createPost(req, res){
@@ -63,7 +65,41 @@ function deletePost(req, res){
       function () {
         res.sendStatus(400)
       }
-      )
+    )
+}
+
+function getPostById(req,res){
+  console.log('Trying to get the edit function to work' + req )
+  var postId = req.params.id
+  PostModel
+    .findById(postId)
+    .then(
+      function(post) {
+        res.json(post);
+      }, 
+      function(error){
+        res.sendStatus(400)
+      }
+    )
+}
+
+function updatePost(req, res){
+  var postId = req.params.id;
+  var post = req.body
+  PostModel
+    .update({_id: postId}, {
+      title: post.title,
+      description: post.description,
+      body: post.body})
+    .then(
+      function(status) {
+        res.sendStatus(200);
+      }, 
+      function(error){
+        res.sendStatus(400)
+      }
+    )
+
 }
 app.listen(port, function(){
   console.log('app listening on port ' + port)
