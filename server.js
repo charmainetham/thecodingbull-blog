@@ -3,6 +3,7 @@ var bodyParser = require('body-parser')
 var app = express();
 var port = 3000
 var mongoose = require('mongoose');
+var fs = require('fs');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/codingbullblog');
 
@@ -24,6 +25,18 @@ app.get("/api/blogpost", getAllPosts)
 app.delete("/api/blogpost/:id", deletePost)
 app.get("/api/blogpost/:id", getPostById)
 app.put("/api/blogpost/:id", updatePost)
+app.get('/newpost', function(req,res) {
+    data= fs.readFile('/mywork/public/newpost.html',   function (err, data) {
+    res.setHeader('Content-Type', 'text/html');
+    res.send(data);
+  });
+});
+app.get('/viewposts', function(req,res) {
+    data= fs.readFile('/mywork/public/viewposts.html',   function (err, data) {
+    res.setHeader('Content-Type', 'text/html');
+    res.send(data);
+  });
+});
 
 function getAllPosts(req,res){
   PostModel
