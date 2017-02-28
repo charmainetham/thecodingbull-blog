@@ -3,6 +3,8 @@
     .module("BlogApp", [])
     .controller("BlogController", BlogController);
 //event handler when post is created
+  
+
   function BlogController($scope, $http){
     $scope.createPost = createPost;
     $scope.deletePost = deletePost;
@@ -28,7 +30,6 @@
         .post("/api/blogpost", post)
         .success(function(post){ 
           $scope.post='';
-          getAllPosts
         })
     }
 
@@ -39,6 +40,7 @@
     }
 
     function editPost(postId){
+      console.log('hello im in edit post')
       $http
         .get("/api/blogpost/"+postId)
         .success(function(post){
@@ -52,4 +54,6 @@
         .success(getAllPosts);
     }
   }
-})();
+}
+
+)();

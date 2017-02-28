@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang= "en" ng-app="BlogApp">
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+    <script src ="app.js"></script>
+    <meta charset="UTF-8">
+      <title>Charmaine's Simple Blog</title>
+      <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Charmaine's Simple Blog</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/viewposts.html">View</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  </head>
+  <body>
+
+    <div class="alert alert-success collapse" id = "success" role="alert">
+      <strong>Success!</strong> You have successfully created a blog post!
+    </div>
+    <form name = "blogform">
+    <div class = "form">
+      <div class = "container" ng-controller="BlogController">
+        <h1> Blog Post</h1>
+        <input ng-model="post.title" class="form-control" placeholder="Title"/>
+        <textarea ng-model="post.description" class="form-control" placeholder="Description"></textarea>
+        <textarea ng-model="post.body" class="form-control" rows="7" placeholder="Body"></textarea>
+        <button ng-click="updatePost(post)" class = "btn btn-success btn block">Update</button>
+      </div>
+    </div>
+    </form>
+  </body>
+</html>
