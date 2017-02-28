@@ -26,7 +26,10 @@
     function createPost(post) {
       $http
         .post("/api/blogpost", post)
-        .success(getAllPosts)
+        .success(function(post){ 
+          $scope.post='';
+          getAllPosts
+        })
     }
 
     function deletePost(postId){
@@ -36,7 +39,6 @@
     }
 
     function editPost(postId){
-      console.log("I'm in here")
       $http
         .get("/api/blogpost/"+postId)
         .success(function(post){
@@ -45,7 +47,6 @@
     }
 
      function updatePost(post) {
-      console.log(post)
       $http
         .put("/api/blogpost/"+post._id, post)
         .success(getAllPosts);

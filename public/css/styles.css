@@ -1,0 +1,80 @@
+html body{ 
+  background: url(images/cuba.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+/*main*/
+.main{
+  position: relative;
+  margin 0;
+  text-align: center;
+}
+
+.main .container{
+  position: relative;
+  margin:15em;
+  padding:5em;
+  background-color: rgba(0,0,0,0.5) ;
+  width: 70%;
+}
+
+.main h1 {
+  color:#ffffff;
+  margin:0;
+  font-size: 150px;
+}
+
+.main p {
+  font-size: 18px;
+  color:#fff;
+  margin:0 0 20ox 0;
+}
+
+.main .btn{
+  background-color:#1c1c1c;
+  color:#fff;
+  font-size:18px;
+  padding: 8px 30px;
+  text-decoration:none;
+  display: inline-block;
+  
+}
+/*form*/
+
+.form .container{
+  position: relative;
+  margin:15em;
+  margin-top:10em;
+  padding:5em 5em;
+  padding-right: 7em;
+  background-color: rgba(0,0,0,0.5) ;
+  width: 70%;
+  text-align: center;
+  color: #fff;
+}
+
+.form .container .form-control{
+  margin: 1em;
+}
+
+.form .btn{
+  background-color:#1c1c1c;
+  color:#fff;
+  font-size:18px;
+  padding: 8px 30px;
+  text-decoration:none;
+  display: inline-block;
+  width: 150px;
+  
+}
+
+.eachpost{
+  position: relative;
+  margin:2em 2em 2em 12%;
+  padding:1em;
+  background-color: rgba(0,0,0,0.5) ;
+  width: 70%;
+  color: #fff;
+}
